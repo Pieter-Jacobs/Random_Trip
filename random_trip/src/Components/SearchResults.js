@@ -9,9 +9,8 @@ export default function SearchResults(props) {
     <div>
       <div>
           <div>
-            <ResultsCategory category={props.info.categories}/>
-            <ResultsData data={props.info.data}/>
-            {console.log(props.info.data)}
+            <ResultsCategory category = {Object.keys(props)}/>
+            <ResultsData data = {Object.values(props)} />
           </div>
       </div>
     </div>
