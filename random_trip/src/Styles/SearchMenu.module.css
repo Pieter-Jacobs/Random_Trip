@@ -1,14 +1,14 @@
 .rv-form-container {
-  width: 50%;
+  width: 100%;
 }
 .rv-form {
-  width: 100%;
-  height: 80%;
+  height: 70%;
   display: grid;
   justify-items: center;
 }
 .rv-info {
   width: 100%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,19 +21,17 @@
   border: none;
 }
 .rv-submit {
-  width: 60%;
-  height: 70%;
+  width: 25%;
+  height: 50%;
   margin-top: 5%;
   font-size: 1.5rem;
-  background-color: #FDFFFC;
+  background-color: #E71D36;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  color: #FDFFFC;
   cursor: pointer;
-  -webkit-box-shadow: 0px 0px 86px -17px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 86px -17px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 86px -17px rgba(0,0,0,0.75);
   transition: background-color 1s;
 }
 .rv-submit:hover {
-  background-color: #2EC4B6;
+  background-color: #011627;
 }

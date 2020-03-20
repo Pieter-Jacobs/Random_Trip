@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import './App.css';
+import logo from './Imgs/Airplane.png'
 import SearchMenu from './Components/SearchMenu.js';
 import SearchResults from './Components/SearchResults.js';
 import {findBestFlight} from './randomTrip.js'
@@ -14,12 +15,13 @@ function App() {
   return (
     <div className="App">
       <div className="rv-title">
+        <img src={logo}/>
         <h1>Generate a Random Vacation</h1>
       </div>
       <SearchMenu/>
-      <SearchResults {...data}/>
+
     </div>
   );
 }
-
+//<SearchResults {...data}/>
 export default App;
