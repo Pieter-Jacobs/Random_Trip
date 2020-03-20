@@ -3,7 +3,6 @@ import './App.css';
 import SearchMenu from './Components/SearchMenu.js';
 import SearchResults from './Components/SearchResults.js';
 import {findBestFlight} from './randomTrip.js'
-let fuckyes;
 
 function App() {
   const [data, setData] = useState({});
@@ -14,7 +13,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Generate a Random Trip</h1>
+      <div className="rv-title">
+        <h1>Generate a Random Vacation</h1>
+      </div>
       <SearchMenu/>
       <SearchResults {...data}/>
     </div>

@@ -5,7 +5,7 @@ import '../Styles/ResultsCategory.module.css';
 export default function ResultsCategory(props) {
   return (
     <div>
-      {props.category.map((item) => <div>{item}</div>)}
+      {props.category.map((item, i) => <div key = {i}>{item}</div>)}
     </div>
   );
 }
