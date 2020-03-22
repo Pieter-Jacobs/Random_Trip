@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 export default function useGenerateForm(callback) {
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({price: 300, from: 'AMS'});
 
   const handleSubmit = (event) => {
     if (event) {

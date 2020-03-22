@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../Styles/ResultsCategory.module.css';
+import styles from '../Styles/ResultsCategory.module.css';
 
 export default function ResultsCategory(props) {
   return (
-    <div>
+    <div className={styles['rv-category-container']}>
       {props.category.map((item, i) => <div key = {i}>{item}</div>)}
     </div>
   );

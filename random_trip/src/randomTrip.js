@@ -53,8 +53,8 @@ const getAirport = async () => {
   );
 }
 
-const getFlights = async (country,depart_date,arrival_date) => {
-  return await axios.get(`https://cors-anywhere.herokuapp.com/http://api.travelpayouts.com/v1/prices/cheap?origin=AMS&currency=EUR&destination=${country}&depart_date=${depart_date}&return_date=${arrival_date}&token=f90b69b87092e386720496f32f5264e2`)
+const getFlights = async (country,depart_date,arrival_date,origin) => {
+  return await axios.get(`https://cors-anywhere.herokuapp.com/http://api.travelpayouts.com/v1/prices/cheap?origin=${origin}&currency=EUR&destination=${country}&depart_date=${depart_date}&return_date=${arrival_date}&token=f90b69b87092e386720496f32f5264e2`)
   .then(
     (response) => {
       let price = findObjectByLabel(response.data.data,"price");
@@ -68,13 +68,13 @@ const getFlights = async (country,depart_date,arrival_date) => {
   );
 }
 
-const findBestFlight = async () => {
+const findBestFlight = async (origin) => {
   let country = await getAirport();
   //let max_flightprice = 300;
   let depart_date = "2020-03";
   let arrival_date = "2020-04";
   //let best_flight;
-  let flight_information = await getFlights(country,depart_date,arrival_date);
+  let flight_information = await getFlights(country,depart_date,arrival_date,origin);
   /*
   while (flight_information.price > max_flightprice) {
     flight_information = await getFlights(country,depart_date,arrival_date);
