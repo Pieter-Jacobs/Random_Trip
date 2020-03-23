@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 
-export default function useGenerateForm(callback) {
-  const [inputs, setInputs] = useState({price: 300, from: 'AMS'});
+export default function useGenerateForm() {
+  let today = new Date();
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm
+  const [inputs, setInputs] = useState({'price': '300', 'from': 'AMS', 'departure': today, 'return': today});
 
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
     }
-    callback();
   }
   const handleInputChange = (event) => {
     event.persist();

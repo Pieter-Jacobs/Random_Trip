@@ -13,20 +13,50 @@ export default function SearchResults(props) {
       isFirstRun.current = false;
       return;
     }
-    findBestFlight(props.from).then((value) => {setData(value)});
+    findBestFlight(props.from,props.departure,props.arrival).then((value) => {
+      if (value.price == "No Flights" || value.price < props.maxPrice) {
+        findNewFlight();
+      }
+      else {
+        setData(value)
+      }
+    });
+
   },[props.canRequest]);
 
+  let findNewFlight = () => {
+    findBestFlight(props.from,props.departure,props.arrival).then((response) => {
+      if (response.price == "No Flights") {
+        findNewFlight(response);
+      }
+      else {
+        setData(response);
+      }
+    });
+  }
+
   let loadingCheck = () => {
-    if(Object.keys(data).length == 0 && !isFirstRun.current){
+    if(Object.keys(data).length == 0 && props.canRequest == true){
       return (<div className={styles['rv-load']}>Loading...</div>)
     }
   }
+
+  let appear = () => {
+    if (props.canRequest == true) {
+      return 1;
+    }
+    return 0;
+  }
+
+
   return (
-    <div className={styles['rv-flight-info']}>
-      {loadingCheck()}
-      <ResultsCategory category = {Object.keys(data)}/>
-      <ResultsData data = {Object.values(data)} />
-    </div>
+    <div className={appear() ? styles['rv-flight-info-container'] : styles['invisible'] }>
+      <a className={styles['rv-flight-info']} href={`https://www.skyscanner.nl/transport/vluchten/${props.from}/${data.to}/${data.departure}/${data.arrival}/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home`}>
+        {loadingCheck()}
+        <ResultsCategory category = {Object.keys(data)}/>
+        <ResultsData data = {Object.values(data)} />
+      </a>
+  </div>
   );
 }
 

@@ -4,7 +4,7 @@
   background-color: #FDFFFC;
   border-radius: 15px;
   display: grid;
-  grid-template-rows: 35% 65%;
+  grid-template-rows: 40% 60%;
   justify-items: center;
   -webkit-box-shadow: -2px -20px 78px -29px rgba(0,0,0,0.75);
   -moz-box-shadow: -2px -20px 78px -29px rgba(0,0,0,0.75);

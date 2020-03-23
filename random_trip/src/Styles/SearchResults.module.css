@@ -1,6 +1,21 @@
+.rv-flight-info-container {
+  width: 100%;
+  background-color: #011627;
+  height: 32.5%;
+  display: grid;
+  align-items: center;
+}
 .rv-flight-info {
   display: grid;
+  width: 95%;
+  margin: auto;
+  text-decoration: none;
+  color: #FDFFFC;
+  font-size: 1.1rem;
 }
 .rv-load {
   text-align: center;
+}
+.invisible {
+  display: none;
 }
